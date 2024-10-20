@@ -1,7 +1,6 @@
 package br.ufrn.imd.ui;
 
 import br.ufrn.imd.solutions.SolutionsGraph;
-
 import java.util.Scanner;
 
 public class MenuGraph {
@@ -10,47 +9,88 @@ public class MenuGraph {
         SolutionsGraph solutions = new SolutionsGraph();
         int choice;
 
+        // Ask the user to enter the file name
+        System.out.print("Digite o nome do arquivo: ");
+        String fileName = scanner.nextLine();
+//        scanner.nextLine(); // Wait for the user to press Enter
+
         do {
-            displayMenu();
-            System.out.print("Enter your choice (0 to exit): ");
+            displayMainMenu();
+            System.out.print("Digite sua escolha (0 para sair): ");
 
             // Input validation
             while (!scanner.hasNextInt()) {
-                System.out.println("Invalid input! Please enter a number.");
+                System.out.println("Entrada inválida. Por favor, digite um número.");
                 scanner.next();
             }
             choice = scanner.nextInt();
-            // Consume the leftover newline character after nextInt()
-            scanner.nextLine();
+            scanner.nextLine(); // Consume the leftover newline
 
-            switch (choice) {
-                case 1:
-//                    solutions.solution1();
-                    break;
-                case 2:
-                    System.out.print("Enter the file name: ");
-                    String fileName = scanner.nextLine();
-                    solutions.solution2(fileName);
-                    break;
-                case 3:
-//                    solutions.solution3();
-                    break;
-                // TODO: Add more cases
-                case 0:
-                    System.out.println("Exiting program...");
-                    break;
-                default:
-                    System.out.println("Invalid option! Please try again.");
+            if (choice >= 1 && choice <= 3) {
+                switch (choice) { // representation options
+                    case 1:
+//                        solutions.solution1(fileName);
+                        break;
+                    case 2:
+//                        solutions.solution2(fileName);
+                        break;
+                    case 3:
+//                        solutions.solution3(fileName);
+                        break;
+                }
+
+                showSolutionOptions(scanner, solutions);
+            } else if (choice == 0) {
+                System.out.println("Saindo...");
+            } else {
+                System.out.println("Opção inválida. Por favor tente novamente.");
             }
 
             if (choice != 0) {
-                System.out.println("\nPress Enter to continue...");
+                System.out.println("\nAperte enter para continuar...");
                 scanner.nextLine();
             }
-
         } while (choice != 0);
 
         scanner.close();
+    }
+
+    private static void showSolutionOptions(Scanner scanner, SolutionsGraph solutions) {
+        int stageChoice;
+        do {
+            displaySecondMenu();
+            System.out.print("Digite sua escolha (0 para voltar): ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("Entrada inválida. Por favor, digite um número.");
+                scanner.next();
+            }
+            stageChoice = scanner.nextInt();
+            scanner.nextLine(); // Consume the leftover newline
+
+            switch (stageChoice) {
+                case 4:
+//                    solutions.solution4();
+                    break;
+                case 5:
+//                    solutions.solution5();
+                    break;
+                case 6:
+//                    solutions.solution6();
+                    break;
+                // TODO: Add more solutions
+                case 0:
+                    System.out.println("Voltando ao menu principal...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Por favor tente novamente.");
+            }
+
+            if (stageChoice != 0) {
+                System.out.println("\nAperte enter para continuar...");
+                scanner.nextLine();
+            }
+        } while (stageChoice != 0);
     }
 
     // Clears the console (platform-independent)
@@ -59,14 +99,24 @@ public class MenuGraph {
         System.out.flush();
     }
 
-    private static void displayMenu() {
+    private static void displayMainMenu() {
         clearConsole();
+        System.out.println("=== Escolha uma representação ===");
+        System.out.println("(1) Representação do Grafo a partir da Lista de Adjacências");
+        System.out.println("(2) Representação do Grafo a partir da Matriz de Adjacências");
+        System.out.println("(3) Representação do Grafo a partir da Matriz de Incidência");
+        System.out.println("(0) Sair");
+        System.out.println("========================");
+    }
 
-        System.out.println("=== Graph Solutions Menu ===");
-        System.out.println("1. Solution 1");
-        System.out.println("2. Solution 2");
-        System.out.println("3. Solution 3");
-        System.out.println("0. Exit");
+    private static void displaySecondMenu() {
+        clearConsole();
+        System.out.println("=== Soluções ===");
+        System.out.println("(4) Solução 4");
+        System.out.println("(5) Solução 5");
+        System.out.println("(6) Solução 6");
+        // TODO: Add more solutions
+        System.out.println("(0) Voltar ao menu principal");
         System.out.println("========================");
     }
 }
