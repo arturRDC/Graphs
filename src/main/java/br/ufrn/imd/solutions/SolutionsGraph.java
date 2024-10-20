@@ -35,4 +35,9 @@ public class SolutionsGraph {
     public void setGraph(Graph graph) {
         this.graph = graph;
     }
+
+    public void solution14() {
+        String startVertex = graph.getVertices().get(0);
+        graph.bfs(startVertex);
+    }
 }

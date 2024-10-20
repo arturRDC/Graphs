@@ -104,7 +104,7 @@ public class MenuGraph {
 //                    solutions.solution13();
                     break;
                 case 14:
-//                    solutions.solution14();
+                    solutions.solution14();
                     break;
                 case 15:
 //                    solutions.solution15();
