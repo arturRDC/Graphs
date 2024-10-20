@@ -78,7 +78,36 @@ public class MenuGraph {
                 case 6:
 //                    solutions.solution6();
                     break;
-                // TODO: Add more solutions
+                case 7:
+//                    solutions.solution7();
+                    break;
+                case 8:
+//                    solutions.solution8();
+                    break;
+                case 9:
+//                    solutions.solution9();
+                    break;
+                case 10:
+//                    solutions.solution10();
+                    break;
+                case 11:
+//                    solutions.solution11();
+                    break;
+                case 12:
+//                    solutions.solution12();
+                    break;
+                case 13:
+//                    solutions.solution13();
+                    break;
+                case 14:
+//                    solutions.solution14();
+                    break;
+                case 15:
+//                    solutions.solution15();
+                    break;
+                case 16:
+//                    solutions.solution16();
+                    break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");
                     break;
@@ -112,10 +141,19 @@ public class MenuGraph {
     private static void displaySecondMenu() {
         clearConsole();
         System.out.println("=== Soluções ===");
-        System.out.println("(4) Solução 4");
-        System.out.println("(5) Solução 5");
-        System.out.println("(6) Solução 6");
-        // TODO: Add more solutions
+        System.out.println("(4) Converter matriz de adjacência para lista de Adjacências e vice-versa.");
+        System.out.println("(5) Calcular o grau de cada vértice.");
+        System.out.println("(6) Determinar se dois vértices são adjacentes.");
+        System.out.println("(7) Determinar o número total de vértices");
+        System.out.println("(8) Determinar o número total de arestas");
+        System.out.println("(9) Incluir um novo vértice");
+        System.out.println("(10) Excluir um vértice existente");
+        System.out.println("(11) Determinar se um grafo é conexo ou não");
+        System.out.println("(12) Determinar se um grafo é bipartido");
+        System.out.println("(13) Dada uma representação de uma árvore por matriz de adjacência, produzir o código de Prüffer e vice versa.");
+        System.out.println("(14) Busca em Largura, a partir de um vértice específico");
+        System.out.println("(15) Busca em Profundidade, a partir de um vértice em específico.");
+        System.out.println("(16) Determinação de articulações e blocos (biconectividade)");
         System.out.println("(0) Voltar ao menu principal");
         System.out.println("========================");
     }
