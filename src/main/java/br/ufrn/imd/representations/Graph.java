@@ -27,7 +27,6 @@ public abstract class Graph {
     public abstract void removeEdge(String source, String destination);
     public abstract void printGraph();
 
-    // These methods will be implemented by subclasses
     protected abstract void addVertexSpecific(String vertex);
     protected abstract void removeVertexSpecific(String vertex, int index);
 }

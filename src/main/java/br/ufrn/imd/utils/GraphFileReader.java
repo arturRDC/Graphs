@@ -5,9 +5,15 @@ import br.ufrn.imd.representations.Graph;
 public class GraphFileReader {
     private String fileName;
     public void read(Graph graph) {
-        // readline
-//        graph.addVertex(...);
-//        graph.addEdge(...);
+        // TODO: Read the file and add vertices and edges to the graph
+        // Mock data
+        graph.addVertex("A");
+        graph.addVertex("B");
+        graph.addVertex("C");
+        graph.addVertex("D");
+        graph.addEdge("A", "B");
+        graph.addEdge("A", "C");
+        graph.addEdge("B", "D");
     }
 
     public String getFileName() {

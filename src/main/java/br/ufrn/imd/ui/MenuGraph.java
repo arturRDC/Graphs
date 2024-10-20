@@ -32,13 +32,13 @@ public class MenuGraph {
 //                        solutions.solution1(fileName);
                         break;
                     case 2:
-//                        solutions.solution2(fileName);
+                        solutions.solution2(fileName);
                         break;
                     case 3:
 //                        solutions.solution3(fileName);
                         break;
                 }
-
+                pressEnter(scanner);
                 showSolutionOptions(scanner, solutions);
             } else if (choice == 0) {
                 System.out.println("Saindo...");
@@ -47,12 +47,16 @@ public class MenuGraph {
             }
 
             if (choice != 0) {
-                System.out.println("\nAperte enter para continuar...");
-                scanner.nextLine();
+                pressEnter(scanner);
             }
         } while (choice != 0);
 
         scanner.close();
+    }
+
+    private static void pressEnter(Scanner scanner) {
+        System.out.println("\nAperte enter para continuar...");
+        scanner.nextLine();
     }
 
     private static void showSolutionOptions(Scanner scanner, SolutionsGraph solutions) {

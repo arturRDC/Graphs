@@ -23,9 +23,9 @@ public class SolutionsGraph {
 
     public void solution2(String fileName) {
         readAdjacencyMatrix(fileName);
-        System.out.println("Graph after reading from file:");
-//        graph.printMatrix();
-//        graph.printGraph();
+        System.out.println("Matriz de Adjacência:");
+        ((AdjacencyMatrixGraph) graph).printMatrix();
+        graph.printGraph();
     }
 
     public Graph getGraph() {
