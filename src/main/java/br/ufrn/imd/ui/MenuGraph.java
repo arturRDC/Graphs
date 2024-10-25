@@ -35,7 +35,7 @@ public class MenuGraph {
                         solutions.solution2(fileName);
                         break;
                     case 3:
-//                        solutions.solution3(fileName);
+                        solutions.solution3(fileName);
                         break;
                 }
                 pressEnter(scanner);
