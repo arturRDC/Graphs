@@ -29,7 +29,7 @@ public class MenuGraph {
             if (choice >= 1 && choice <= 3) {
                 switch (choice) { // representation options
                     case 1:
-//                        solutions.solution1(fileName);
+                        solutions.solution1(fileName);
                         break;
                     case 2:
                         solutions.solution2(fileName);
