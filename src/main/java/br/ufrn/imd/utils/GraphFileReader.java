@@ -43,30 +43,6 @@ public class GraphFileReader {
         }
     }
 
-    public void readDigraph(Graph graph, boolean directed) {
-        // Adicionar vértices
-        graph.addVertex("A");
-        graph.addVertex("B");
-        graph.addVertex("C");
-        graph.addVertex("D");
-
-        // Adicionar arestas
-        if (directed) {
-            // Para grafos direcionados
-            graph.addEdge("A", "B");
-            graph.addEdge("C", "A");
-            graph.addEdge("B", "D");
-        } else {
-            // Para grafos não direcionados (aresta nos dois sentidos)
-            graph.addEdge("A", "B");
-            graph.addEdge("B", "A");  // Aresta de volta
-            graph.addEdge("A", "C");
-            graph.addEdge("C", "A");  // Aresta de volta
-            graph.addEdge("B", "D");
-            graph.addEdge("D", "B");  // Aresta de volta
-        }
-    }
-
     public String getFileName() {
         return fileName;
     }

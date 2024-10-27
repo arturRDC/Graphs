@@ -2,7 +2,6 @@ package br.ufrn.imd.solutions;
 
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.representations.Graph;
-import br.ufrn.imd.representations.IncidenceMatrixDigraph;
 import br.ufrn.imd.representations.IncidenceMatrixGraph;
 import br.ufrn.imd.utils.GraphFileReader;
 
@@ -23,10 +22,9 @@ public class SolutionsGraph {
 
     // Leitura de Matriz de Incidência
     public void readIncidenceMatrix(String fileName) {
-        boolean isDirected = true; // true == digraph, false == graph
-        setGraph(new IncidenceMatrixDigraph());
+        setGraph(new IncidenceMatrixGraph());
         graphFileReader.setFileName(fileName);
-        graphFileReader.readDigraph(graph, isDirected);
+        graphFileReader.read(graph);
     }
 
     public void solution2(String fileName) {
