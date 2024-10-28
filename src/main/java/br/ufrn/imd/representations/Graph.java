@@ -23,7 +23,12 @@ public abstract class Graph {
         }
     }
 
+
+    public boolean hasVertex(String vertex) {
+        return vertices.contains(vertex);
+    }
     public abstract void addEdge(String source, String destination);
+    public abstract boolean hasEdge(String source, String destination);
     public abstract void removeEdge(String source, String destination);
     public abstract void printGraph();
 

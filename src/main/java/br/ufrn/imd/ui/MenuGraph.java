@@ -1,7 +1,9 @@
 package br.ufrn.imd.ui;
 
+import br.ufrn.imd.representations.Graph;
 import br.ufrn.imd.solutions.SolutionsGraph;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MenuGraph {
     public static void main(String[] args) {
@@ -25,20 +27,16 @@ public class MenuGraph {
             choice = scanner.nextInt();
             scanner.nextLine(); // Consume the leftover newline
 
+
             if (choice >= 1 && choice <= 3) {
-                switch (choice) { // representation options
-                    case 1:
-                        solutions.solution1(fileName);
-                        break;
-                    case 2:
-                        solutions.solution2(fileName);
-                        break;
-                    case 3:
-                        solutions.solution3(fileName);
-                        break;
-                }
+                Graph graph = switch (choice) { // representation options
+                    case 1 -> solutions.solution1(fileName);
+                    case 2 -> solutions.solution2(fileName);
+                    case 3 -> solutions.solution3(fileName);
+                    default -> null;
+                };
                 pressEnter(scanner);
-                showSolutionOptions(scanner, solutions);
+                showSolutionOptions(scanner, solutions, choice, graph);
             } else if (choice == 0) {
                 System.out.println("Saindo...");
             } else {
@@ -58,7 +56,7 @@ public class MenuGraph {
         scanner.nextLine();
     }
 
-    private static void showSolutionOptions(Scanner scanner, SolutionsGraph solutions) {
+    private static void showSolutionOptions(Scanner scanner, SolutionsGraph solutions, Integer lastChoice, Graph graph) {
         int stageChoice;
         do {
             displaySecondMenu();
@@ -73,7 +71,9 @@ public class MenuGraph {
 
             switch (stageChoice) {
                 case 4:
-//                    solutions.solution4();
+                    AtomicInteger choiceWrapper = new AtomicInteger(lastChoice);
+                    graph = solutions.solution4(choiceWrapper, graph);
+                    lastChoice = choiceWrapper.get();
                     break;
                 case 5:
 //                    solutions.solution5();
@@ -88,10 +88,10 @@ public class MenuGraph {
 //                    solutions.solution8();
                     break;
                 case 9:
-//                    solutions.solution9();
+                    solutions.solution9(lastChoice, graph);
                     break;
                 case 10:
-//                    solutions.solution10();
+                    solutions.solution10(lastChoice, graph);
                     break;
                 case 11:
 //                    solutions.solution11();

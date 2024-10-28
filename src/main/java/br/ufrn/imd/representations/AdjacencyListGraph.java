@@ -46,6 +46,16 @@ public class AdjacencyListGraph extends Graph {
         }
     }
 
+    @Override
+    public boolean hasEdge(String source, String destination) {
+        int sourceIndex = vertices.indexOf(source);
+        int destIndex = vertices.indexOf(destination);
+        if (sourceIndex != -1 && destIndex != -1) {
+            return adjacencyList.get(sourceIndex).contains(destination);
+        }
+        return false;
+    }
+
     public void printList() {
         for (int i = 0; i < vertices.size(); i++) {
             System.out.print(vertices.get(i) + " -> ");
@@ -71,5 +81,26 @@ public class AdjacencyListGraph extends Graph {
         for (LinkedList<String> connections : adjacencyList) {
             connections.remove(vertex);
         }
+    }
+
+    public AdjacencyMatrixGraph toAdjacencyMatrix() {
+        AdjacencyMatrixGraph matrixGraph = new AdjacencyMatrixGraph();
+
+        // Adiciona os mesmos vértices ao grafo de matriz
+        for (String vertex : this.vertices) {
+            matrixGraph.addVertex(vertex);
+        }
+
+        // Constrói a matriz de adjacência com base na lista de adjacências
+        int size = this.vertices.size();
+        for (int i = 0; i < size; i++) {
+            LinkedList<String> neighbors = this.adjacencyList.get(i);
+            for (String neighbor : neighbors) {
+                int j = this.vertices.indexOf(neighbor);
+                matrixGraph.addEdge(this.vertices.get(i), this.vertices.get(j));
+            }
+        }
+
+        return matrixGraph;
     }
 }
