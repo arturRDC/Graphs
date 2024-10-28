@@ -14,6 +14,7 @@ public class IncidenceMatrixGraph extends Graph {
         this.incidenceMatrix = new ArrayList<>(); // Inicializa a matriz de incidência como lista de listas
     }
 
+    // Retorna a lista de vértices adjacentes a um vértice
     @Override
     protected List<String> findAdjacentVertices(String vertex) {
         int vertexIndex = vertices.indexOf(vertex);

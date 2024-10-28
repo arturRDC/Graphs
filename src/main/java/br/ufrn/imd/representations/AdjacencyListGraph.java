@@ -12,6 +12,7 @@ public class AdjacencyListGraph extends Graph {
         this.adjacencyList = new ArrayList<>();
     }
 
+    // Retorna a lista de vértices adjacentes a um vértice
     @Override
     protected List<String> findAdjacentVertices(String vertex) {
         int index = vertices.indexOf(vertex);
