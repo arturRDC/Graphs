@@ -12,7 +12,6 @@ public class MenuGraph {
         // Ask the user to enter the file name
         System.out.print("Digite o nome do arquivo: ");
         String fileName = scanner.nextLine();
-//        scanner.nextLine(); // Wait for the user to press Enter
 
         do {
             displayMainMenu();
@@ -35,7 +34,7 @@ public class MenuGraph {
                         solutions.solution2(fileName);
                         break;
                     case 3:
-//                        solutions.solution3(fileName);
+                        solutions.solution3(fileName);
                         break;
                 }
                 pressEnter(scanner);
