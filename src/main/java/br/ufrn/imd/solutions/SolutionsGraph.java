@@ -254,7 +254,13 @@ public class SolutionsGraph {
 
 
     public void solution14() {
-        String startVertex = graph.getVertices().get(0);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o vértice inicial: ");
+        String startVertex = scanner.nextLine();
+        if (!graph.hasVertex(startVertex)) {
+            System.out.println("Vértice inicial não encontrado no grafo.");
+            return;
+        }
         graph.bfs(startVertex);
     }
 }
