@@ -16,7 +16,7 @@ public class AdjacencyListGraph extends Graph {
     public void addEdge(String source, String destination) {
         int sourceIndex = vertices.indexOf(source);
         int destIndex = vertices.indexOf(destination);
-        if (sourceIndex != -1 && destIndex != -1) {
+        if (sourceIndex != -1 && destIndex != -1 && !hasEdge(source, destination)) {
             adjacencyList.get(sourceIndex).add(destination);
             adjacencyList.get(destIndex).add(source);
         }

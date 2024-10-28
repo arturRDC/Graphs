@@ -35,7 +35,7 @@ public class AdjacencyMatrixGraph extends Graph {
     public void addEdge(String source, String destination) {
         int sourceIndex = vertices.indexOf(source);
         int destIndex = vertices.indexOf(destination);
-        if (sourceIndex != -1 && destIndex != -1) {
+        if (sourceIndex != -1 && destIndex != -1 && !hasEdge(source, destination)) {
             adjacencyMatrix.get(sourceIndex).set(destIndex, 1);
             adjacencyMatrix.get(destIndex).set(sourceIndex, 1);
         }
