@@ -44,7 +44,7 @@ public class IncidenceMatrixGraph extends Graph {
         int sourceIndex = vertices.indexOf(source);
         int destIndex = vertices.indexOf(destination);
 
-        if (sourceIndex != -1 && destIndex != -1 && !edgeExists(sourceIndex, destIndex)) {
+        if (sourceIndex != -1 && destIndex != -1 && !hasEdge(source, destination)) {
             // Inicializa uma nova linha para representar a nova aresta
             List<Integer> newEdge = new ArrayList<>();
             for (int i = 0; i < vertices.size(); i++) {
@@ -57,12 +57,15 @@ public class IncidenceMatrixGraph extends Graph {
         }
     }
 
-    // Verifica se uma aresta já existe entre dois vértices (não direcionado)
-    private boolean edgeExists(int sourceIndex, int destIndex) {
-        for (List<Integer> row : incidenceMatrix) {
-            if ((row.get(sourceIndex) == 1 && row.get(destIndex) == 1) ||
-                    (row.get(sourceIndex) == 1 && row.get(destIndex) == 1)) {
-                return true;
+    @Override
+    public boolean hasEdge(String source, String destination) {
+        int sourceIndex = vertices.indexOf(source);
+        int destIndex = vertices.indexOf(destination);
+        if (sourceIndex != -1 && destIndex != -1) {
+            for (List<Integer> row : incidenceMatrix) {
+                if (row.get(sourceIndex) == 1 && row.get(destIndex) == 1) {
+                    return true;
+                }
             }
         }
         return false;

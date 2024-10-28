@@ -60,9 +60,15 @@ public abstract class Graph {
     // Abstract method to get adjacent vertices of a given vertex
     protected abstract List<String> findAdjacentVertices(String vertex);
 
+
+    public boolean hasVertex(String vertex) {
+        return vertices.contains(vertex);
+    }
     public abstract void addEdge(String source, String destination);
+    public abstract boolean hasEdge(String source, String destination);
     public abstract void removeEdge(String source, String destination);
     public abstract void printGraph();
+
     protected abstract void addVertexSpecific(String vertex);
     protected abstract void removeVertexSpecific(String vertex, int index);
 }
