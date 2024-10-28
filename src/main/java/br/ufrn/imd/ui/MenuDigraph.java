@@ -33,7 +33,7 @@ public class MenuDigraph {
                         solutions.solution17(fileName);
                         break;
                     case 18:
-//                        solutions.solution18(fileName);
+                        solutions.solution18(fileName);
                         break;
                 }
                 pressEnter(scanner);
