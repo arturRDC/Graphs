@@ -26,12 +26,6 @@ public abstract class Graph {
     }
 
     public void bfs(String startVertex) {
-        // Check if start vertex exists
-        if (!vertices.contains(startVertex)) {
-            System.out.println("Start vertex not found in graph");
-            return;
-        }
-
         Set<String> visited = new HashSet<>();
         Queue<String> queue = new LinkedList<>();
 
@@ -39,14 +33,14 @@ public abstract class Graph {
         queue.offer(startVertex);
 
         while (!queue.isEmpty()) {
-            // Remove first vertex from queue and print it
+            // Remove primeiro vértice da fila e imprime
             String currentVertex = queue.poll();
             System.out.print(currentVertex + " ");
 
-            // Get all adjacent vertices
+            // Obtém todos os vértices adjacentes ao atual
             List<String> adjacentVertices = findAdjacentVertices(currentVertex);
 
-            // Add unvisited adjacent vertices to queue
+            // Adiciona os vértices adjacentes não visitados à fila
             for (String neighbor : adjacentVertices) {
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
@@ -57,7 +51,7 @@ public abstract class Graph {
         System.out.println();
     }
 
-    // Abstract method to get adjacent vertices of a given vertex
+    // Retorna a lista de vértices adjacentes a um vértice
     protected abstract List<String> findAdjacentVertices(String vertex);
 
 
