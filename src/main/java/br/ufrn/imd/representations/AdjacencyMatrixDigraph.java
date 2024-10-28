@@ -7,6 +7,11 @@ public class AdjacencyMatrixDigraph extends Graph{
     }
 
     @Override
+    public boolean hasEdge(String source, String destination) {
+        return false;
+    }
+
+    @Override
     public void removeEdge(String source, String destination) {
 
     }
