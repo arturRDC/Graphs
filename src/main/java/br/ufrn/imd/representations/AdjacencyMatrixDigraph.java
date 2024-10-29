@@ -4,7 +4,7 @@ import java.util.List;
 
 public class AdjacencyMatrixDigraph extends Graph{
     @Override
-    protected List<String> findAdjacentVertices(String vertex) {
+    public List<String> findAdjacentVertices(String vertex) {
         return List.of();
     }
 

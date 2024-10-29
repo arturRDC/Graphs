@@ -15,7 +15,7 @@ public class AdjacencyMatrixGraph extends Graph {
 
     // Retorna a lista de vértices adjacentes a um vértice
     @Override
-    protected List<String> findAdjacentVertices(String vertex) {
+    public List<String> findAdjacentVertices(String vertex) {
         List<String> neighbors = new ArrayList<>();
         int vertexIndex = vertices.indexOf(vertex);
 
