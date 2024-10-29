@@ -4,6 +4,7 @@ import br.ufrn.imd.representations.AdjacencyListGraph;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.representations.Graph;
 import br.ufrn.imd.representations.IncidenceMatrixGraph;
+import br.ufrn.imd.utils.ArticulationPoints;
 import br.ufrn.imd.utils.GraphFileReader;
 
 import java.util.Scanner;
@@ -262,5 +263,11 @@ public class SolutionsGraph {
             return;
         }
         graph.bfs(startVertex);
+    }
+
+    public void solution16() {
+        ArticulationPoints articulationPoints = new ArticulationPoints(graph);
+        articulationPoints.findArticulationPointsAndBlocks();
+        articulationPoints.printResults();
     }
 }

@@ -109,7 +109,7 @@ public class MenuGraph {
 //                    solutions.solution15();
                     break;
                 case 16:
-//                    solutions.solution16();
+                    solutions.solution16();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");

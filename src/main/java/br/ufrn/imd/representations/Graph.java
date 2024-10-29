@@ -52,7 +52,7 @@ public abstract class Graph {
     }
 
     // Retorna a lista de vértices adjacentes a um vértice
-    protected abstract List<String> findAdjacentVertices(String vertex);
+    public abstract List<String> findAdjacentVertices(String vertex);
 
 
     public boolean hasVertex(String vertex) {
