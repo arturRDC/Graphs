@@ -20,10 +20,7 @@ public class GraphFileReader {
             // Ler o número de vértices da primeira linha
             int numVertices = Integer.parseInt(br.readLine().trim());
 
-            // Adicionar todos os vértices ao grafo
-            for (int i = 1; i <= numVertices; i++) {
-                graph.addVertex(String.valueOf(i));
-            }
+
 
             // Ler cada aresta e adicioná-la ao grafo
             String line;
@@ -32,6 +29,13 @@ public class GraphFileReader {
                 if (parts.length == 2) {
                     String vertex1 = parts[0].trim();
                     String vertex2 = parts[1].trim();
+
+                    if (!graph.hasVertex(vertex1)) {
+                        graph.addVertex(vertex1);
+                    }
+                    if (!graph.hasVertex(vertex2)) {
+                        graph.addVertex(vertex2);
+                    }
 
                     // Adicionar a aresta
                     graph.addEdge(vertex1, vertex2);
