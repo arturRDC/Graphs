@@ -6,7 +6,10 @@ import br.ufrn.imd.representations.Graph;
 import br.ufrn.imd.representations.IncidenceMatrixGraph;
 import br.ufrn.imd.utils.ArticulationPoints;
 import br.ufrn.imd.utils.GraphFileReader;
+import br.ufrn.imd.utils.PruferConverter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -253,6 +256,28 @@ public class SolutionsGraph {
 
 
 
+    public void solution13() {
+        if (!(graph instanceof AdjacencyMatrixGraph)) {
+            System.out.println("A representação do grafo deve ser da matriz de adjacências.");
+            return;
+        }
+
+        // Converter árvore para código de Prüfer
+        System.out.println("\nConvertendo árvore para código de Prüfer...");
+        PruferConverter pruferConverter = new PruferConverter((AdjacencyMatrixGraph) graph);
+
+        List<String> pruferSequence = pruferConverter.encode();
+        System.out.println("Código de Prüfer:");
+        System.out.println(pruferSequence);
+
+        // Converter código de Prüfer para árvore
+        List<String> vertices = new ArrayList<>(List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"));
+        List<String> pruferInput = new ArrayList<>(List.of("3", "3", "3", "6", "6", "6", "9", "9"));
+        System.out.println("\nConvertendo código de Prüfer para árvore...");
+        AdjacencyMatrixGraph tree = pruferConverter.decode(pruferInput, vertices);
+        tree.printMatrix();
+        tree.printGraph();
+    }
 
     public void solution14() {
         Scanner scanner = new Scanner(System.in);
