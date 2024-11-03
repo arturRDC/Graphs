@@ -110,6 +110,14 @@ public class SolutionsGraph {
         }
     }
 
+    public void solution11() {
+        if (graph.isConnected(graph)) {
+            System.out.println("O grafo é conexo.");
+        } else {
+            System.out.println("O grafo não é conexo.");
+        }
+    }
+
     public Graph getGraph() {
         return graph;
     }

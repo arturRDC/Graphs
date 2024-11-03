@@ -41,4 +41,9 @@ public class AdjacencyMatrixDigraph extends Graph{
     public void printMatrix() {
 
     }
+
+    @Override
+    public String[] getNeighbors(String vertex) {
+        return new String[0];
+    }
 }
