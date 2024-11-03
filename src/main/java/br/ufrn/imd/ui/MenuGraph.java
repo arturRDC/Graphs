@@ -100,16 +100,16 @@ public class MenuGraph {
 //                    solutions.solution12();
                     break;
                 case 13:
-//                    solutions.solution13();
+                    solutions.solution13();
                     break;
                 case 14:
-//                    solutions.solution14();
+                    solutions.solution14();
                     break;
                 case 15:
 //                    solutions.solution15();
                     break;
                 case 16:
-//                    solutions.solution16();
+                    solutions.solution16();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");

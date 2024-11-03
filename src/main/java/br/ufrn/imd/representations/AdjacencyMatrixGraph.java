@@ -13,6 +13,24 @@ public class AdjacencyMatrixGraph extends Graph {
         this.adjacencyMatrix = new ArrayList<>();
     }
 
+    // Retorna a lista de vértices adjacentes a um vértice
+    @Override
+    public List<String> findAdjacentVertices(String vertex) {
+        List<String> neighbors = new ArrayList<>();
+        int vertexIndex = vertices.indexOf(vertex);
+
+        if (vertexIndex != -1) {
+            List<Integer> adjacencyRow = adjacencyMatrix.get(vertexIndex);
+            for (int i = 0; i < adjacencyRow.size(); i++) {
+                if (adjacencyRow.get(i) > 0) {
+                    neighbors.add(vertices.get(i));
+                }
+            }
+        }
+
+        return neighbors;
+    }
+
     @Override
     protected void addVertexSpecific(String vertex) {
         adjacencyMatrix.add(new ArrayList<>(vertices.size()));

@@ -1,6 +1,13 @@
 package br.ufrn.imd.representations;
 
+import java.util.List;
+
 public class AdjacencyMatrixDigraph extends Graph{
+    @Override
+    public List<String> findAdjacentVertices(String vertex) {
+        return List.of();
+    }
+
     @Override
     public void addEdge(String source, String destination) {
 
