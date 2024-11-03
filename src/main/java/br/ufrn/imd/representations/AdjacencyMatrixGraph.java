@@ -113,4 +113,21 @@ public class AdjacencyMatrixGraph extends Graph {
 
         return listGraph;
     }
+
+    @Override
+    public String[] getNeighbors(String vertex) {
+        int vertexIndex = vertices.indexOf(vertex);
+        if (vertexIndex == -1) {
+            return new String[0]; // Retorna um array vazio se o vértice não existir
+        }
+
+        List<String> neighbors = new ArrayList<>();
+        for (int i = 0; i < vertices.size(); i++) {
+            if (adjacencyMatrix.get(vertexIndex).get(i) == 1) {
+                neighbors.add(vertices.get(i)); // Adiciona o vértice i como vizinho
+            }
+        }
+
+        return neighbors.toArray(new String[0]);
+    }
 }
