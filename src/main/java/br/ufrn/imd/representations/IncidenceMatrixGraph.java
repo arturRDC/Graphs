@@ -154,28 +154,4 @@ public class IncidenceMatrixGraph extends Graph {
         }
         return matrix;
     }
-
-    @Override
-    public String[] getNeighbors(String vertex) {
-        int vertexIndex = vertices.indexOf(vertex);
-        if (vertexIndex == -1) {
-            return new String[0]; // Retorna um array vazio se o vértice não existir
-        }
-
-        List<String> neighbors = new ArrayList<>();
-
-        for (List<Integer> edge : incidenceMatrix) {
-            // Verifica se o vértice está presente na aresta
-            if (edge.get(vertexIndex) == 1) {
-                for (int i = 0; i < edge.size(); i++) {
-                    if (edge.get(i) == 1 && i != vertexIndex) {
-                        neighbors.add(vertices.get(i));
-                    }
-                }
-            }
-        }
-
-        return neighbors.toArray(new String[0]); // Converte a lista de vizinhos para um array
-    }
-
 }

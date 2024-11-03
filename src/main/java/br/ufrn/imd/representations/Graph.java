@@ -76,8 +76,6 @@ public abstract class Graph {
     protected abstract void addVertexSpecific(String vertex);
     protected abstract void removeVertexSpecific(String vertex, int index);
 
-    public abstract String[] getNeighbors(String vertex);
-
     // Encontra todos os subgrafos do grafo e associa cada vértice a um identificador de subgrafo
     public Map<String, Integer> findConnectedComponents(Graph graph) {
         Map<String, Integer> componentMap = new HashMap<>();  // Armazena os subgrafos conexos
@@ -86,16 +84,16 @@ public abstract class Graph {
         // Percorre todos os vértices do grafo
         for (String vertex : graph.vertices) {
             if (!componentMap.containsKey(vertex)) {
-                iterativeDFS(vertex, componentId, graph, componentMap);  // Usa DFS iterativa
+                dfs(vertex, componentId, graph, componentMap);  // Usa DFS iterativa
                 componentId++;
             }
         }
         return componentMap;
     }
 
-    // Realiza uma busca em profundidade iterativa (DFS) para marcar vértices do mesmo subgrafo
-    private void iterativeDFS(String startVertex, int componentId, Graph graph, Map<String, Integer> componentMap) {
+    public void dfs(String startVertex, int componentId, Graph graph, Map<String, Integer> componentMap) {
         Deque<String> stack = new ArrayDeque<>();
+        List<String> visitedVertices = new ArrayList<>(); // Lista para armazenar os vértices visitados
         stack.push(startVertex);
 
         while (!stack.isEmpty()) {
@@ -104,9 +102,10 @@ public abstract class Graph {
             if (!componentMap.containsKey(vertex)) {
                 // Marca o vértice como pertencente ao subgrafo atual
                 componentMap.put(vertex, componentId);
+                visitedVertices.add(vertex); // Adiciona o vértice à lista de visitados
 
                 // Itera sobre todos os vizinhos do vértice atual
-                for (String neighbor : graph.getNeighbors(vertex)) {
+                for (String neighbor : findAdjacentVertices(vertex)) {
                     // Se o vizinho ainda não foi visitado, adiciona-o à pilha
                     if (!componentMap.containsKey(neighbor)) {
                         stack.push(neighbor);
@@ -114,6 +113,9 @@ public abstract class Graph {
                 }
             }
         }
+
+        // Imprime todos os vértices visitados após a travessia
+        System.out.println("Ordem (DFS): [" + String.join(",", visitedVertices) + "]");
     }
 
     // Verifica se o grafo é conexo
