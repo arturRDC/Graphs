@@ -114,16 +114,4 @@ public class AdjacencyListGraph extends Graph {
 
         return matrixGraph;
     }
-
-    @Override
-    public String[] getNeighbors(String vertex) {
-        int vertexIndex = vertices.indexOf(vertex);
-        if (vertexIndex == -1) {
-            return new String[0]; // Retorna um array vazio se o vértice não existir
-        }
-
-        LinkedList<String> neighbors = adjacencyList.get(vertexIndex);
-        return neighbors.toArray(new String[0]); // Converte a lista de vizinhos para um array
-    }
-
 }

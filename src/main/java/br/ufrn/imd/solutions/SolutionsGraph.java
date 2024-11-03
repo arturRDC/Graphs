@@ -9,7 +9,9 @@ import br.ufrn.imd.utils.GraphFileReader;
 import br.ufrn.imd.utils.PruferConverter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -296,6 +298,17 @@ public class SolutionsGraph {
             return;
         }
         graph.bfs(startVertex);
+    }
+
+    public void solution15() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o vértice inicial para a travessia DFS: ");
+        String startVertex = scanner.nextLine();
+        if (!graph.hasVertex(startVertex)) {
+            System.out.println("Vértice inicial não encontrado no grafo.");
+            return;
+        }
+        graph.dfs(startVertex, 0, graph, new HashMap<>());
     }
 
     public void solution16() {
