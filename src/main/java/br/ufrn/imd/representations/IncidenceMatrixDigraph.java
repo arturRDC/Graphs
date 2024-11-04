@@ -65,9 +65,9 @@ public class IncidenceMatrixDigraph extends IncidenceMatrixGraph {
 
     @Override
     public void printGraph() {
-        System.out.println("\nDirected Graph (From Incidence Matrix Representation):");
+        System.out.println("\nDigrafo (A Partir da Matriz de Incidência):");
         for (int i = 0; i < edgeCount; i++) {
-            StringBuilder edgeString = new StringBuilder("Edge " + (i + 1) + ": ");
+            StringBuilder edgeString = new StringBuilder("Aresta " + (i + 1) + ": ");
             String vertex1 = "", vertex2 = "";
 
             for (int j = 0; j < vertices.size(); j++) {
