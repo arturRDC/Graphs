@@ -276,7 +276,7 @@ public class SolutionsGraph {
 
     public void solution13() {
         if (!(graph instanceof AdjacencyMatrixGraph)) {
-            System.out.println("A representação do grafo deve ser da matriz de adjacências.");
+            System.out.println("A representação da árvore deve ser da matriz de adjacências.");
             return;
         }
 
@@ -284,9 +284,14 @@ public class SolutionsGraph {
         System.out.println("\nConvertendo árvore para código de Prüfer...");
         PruferConverter pruferConverter = new PruferConverter((AdjacencyMatrixGraph) graph);
 
-        List<String> pruferSequence = pruferConverter.encode();
-        System.out.println("Código de Prüfer:");
-        System.out.println(pruferSequence);
+        try {
+            List<String> pruferSequence = pruferConverter.encode();
+            System.out.println("Código de Prüfer:");
+            System.out.println(pruferSequence);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
 
         // Converter código de Prüfer para árvore
         List<String> vertices = new ArrayList<>(List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"));
