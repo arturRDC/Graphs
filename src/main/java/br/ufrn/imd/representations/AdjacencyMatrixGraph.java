@@ -96,8 +96,6 @@ public class AdjacencyMatrixGraph extends Graph {
     }
 
     public void printMatrix() {
-        System.out.println("Matriz:");
-
         System.out.print(" ");
         for (String vertex : vertices) {
             System.out.printf("%3s", vertex);
@@ -105,7 +103,7 @@ public class AdjacencyMatrixGraph extends Graph {
         System.out.println();
 
         for (int i = 0; i < vertices.size(); i++) {
-            System.out.printf("%-3s", vertices.get(i)); // Row label with fixed width
+            System.out.printf("%-3s", vertices.get(i));
             for (int j = 0; j < vertices.size(); j++) {
                 System.out.printf("%-3d", adjacencyMatrix.get(i).get(j));
             }
