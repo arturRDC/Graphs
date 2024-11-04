@@ -62,8 +62,7 @@ public class PruferConverter {
                 .filter(v -> tree.findAdjacentVertices(v).size() == 1)
                 // Retorna o menor vértice conforme o comparador
                 .min(comparator)
-                .get();
-
+                .orElseThrow(()-> new IllegalArgumentException("Árvore inválida."));
     }
 
     // Decodifica um código de Prüfer e reconstroi a árvore em uma matriz de adjacências
@@ -86,10 +85,7 @@ public class PruferConverter {
         // Gera a árvore adicionando arestas
         while (!code.isEmpty()) {
             // Encontra o menor vértice folha (grau 1)
-            String leaf = vertices.stream()
-                    .filter(v -> degree.get(v) == 1)
-                    .min(comparator)
-                    .get();
+            String leaf = findSmallestLeaf(vertices);
 
             // Remove o primeiro vértice do código de prufer e conecta com o vértice folha
             String neighbor = code.remove(0);
