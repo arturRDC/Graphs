@@ -82,10 +82,10 @@ public class MenuGraph {
 //                    solutions.solution6();
                     break;
                 case 7:
-//                    solutions.solution7();
+                    solutions.solution7();
                     break;
                 case 8:
-//                    solutions.solution8();
+                    solutions.solution8();
                     break;
                 case 9:
                     solutions.solution9(lastChoice, graph);

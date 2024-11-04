@@ -11,7 +11,6 @@ import br.ufrn.imd.utils.PruferConverter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -89,6 +88,15 @@ public class SolutionsGraph {
         }
     }
 
+    public void solution7() {
+        int numberOfVertices = graph.getNumberOfVertices();
+        System.out.println("Número de vértices no grafo: " + numberOfVertices);
+    }
+
+    public void solution8() {
+        int numberOfEdges = graph.getNumberOfEdges();
+        System.out.println("Número de arestas no grafo: " + numberOfEdges);
+    }
 
     public void solution9(Integer graphType, Graph graph) {
         Scanner scanner = new Scanner(System.in);
