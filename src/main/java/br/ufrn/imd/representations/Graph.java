@@ -61,9 +61,23 @@ public abstract class Graph {
         System.out.println();
     }
 
+    public int getNumberOfVertices() {
+        return vertices.size();
+    }
+
+    public int getNumberOfEdges() {
+        int edgeCount = 0;
+
+        for (String vertex : vertices) {
+            edgeCount += findAdjacentVertices(vertex).size();
+        }
+
+        // Dividir por 2, pois cada aresta é contada duas vezes na lista de adjacência
+        return edgeCount / 2;
+    }
+
     // Retorna a lista de vértices adjacentes a um vértice
     public abstract List<String> findAdjacentVertices(String vertex);
-
 
     public boolean hasVertex(String vertex) {
         return vertices.contains(vertex);
