@@ -129,6 +129,8 @@ public class IncidenceMatrixGraph extends Graph {
     }
 
     public void printMatrix() {
+        System.out.print("   ");
+
         for (String vertex : vertices) {
             System.out.printf("%3s", vertex);
         }
