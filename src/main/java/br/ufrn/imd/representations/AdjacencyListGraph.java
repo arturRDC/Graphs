@@ -45,7 +45,7 @@ public class AdjacencyListGraph extends Graph {
 
     @Override
     public void printGraph() {
-        System.out.println("Graph:");
+        System.out.println("Grafo:");
         for (int i = 0; i < vertices.size(); i++) {
             System.out.print(vertices.get(i) + ": {");
             List<String> adjacentVertices = new ArrayList<>();

@@ -109,9 +109,9 @@ public class IncidenceMatrixGraph extends Graph {
 
     @Override
     public void printGraph() {
-        System.out.println("\nGraph (From Incidence Matrix Representation):");
+        System.out.println("\nGrafo (A partir da Representação de Matriz de Incidencia):");
         for (int i = 0; i < edgeCount; i++) {
-            StringBuilder edgeString = new StringBuilder("Edge " + (i + 1) + ": ");
+            StringBuilder edgeString = new StringBuilder("Aresta " + (i + 1) + ": ");
             String vertex1 = "", vertex2 = "";
 
             for (int j = 0; j < vertices.size(); j++) {
@@ -129,8 +129,6 @@ public class IncidenceMatrixGraph extends Graph {
     }
 
     public void printMatrix() {
-        System.out.println("Incidence Matrix:");
-        System.out.print("   ");
         for (String vertex : vertices) {
             System.out.printf("%3s", vertex);
         }

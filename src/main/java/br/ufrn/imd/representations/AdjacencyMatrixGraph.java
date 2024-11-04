@@ -81,7 +81,7 @@ public class AdjacencyMatrixGraph extends Graph {
 
     @Override
     public void printGraph() {
-        System.out.println("Graph:");
+        System.out.println("Grafo:");
         for (int i = 0; i < vertices.size(); i++) {
             System.out.print(vertices.get(i) + ": {");
             List<String> adjacentVertices = new ArrayList<>();
@@ -96,7 +96,7 @@ public class AdjacencyMatrixGraph extends Graph {
     }
 
     public void printMatrix() {
-        System.out.println("Matrix:");
+        System.out.println("Matriz:");
         System.out.print("  ");
         for (String vertex : vertices) {
             System.out.print(vertex + " ");

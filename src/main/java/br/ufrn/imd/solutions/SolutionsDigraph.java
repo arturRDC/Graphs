@@ -38,6 +38,7 @@ public class SolutionsDigraph {
         readIncidenceMatrix(fileName);
         System.out.println("Matriz de Incidência:");
         ((IncidenceMatrixDigraph) graph).printMatrix();
+        System.out.println("\nDigrafo (a partir representação da matriz de incidência):");
         graph.printGraph();
     }
 
