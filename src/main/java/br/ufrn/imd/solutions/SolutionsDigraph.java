@@ -29,7 +29,7 @@ public class SolutionsDigraph {
 
     public void solution17(String fileName) {
         readAdjacencyMatrix(fileName);
-        System.out.println("Matriz de Adjacência:");
+        System.out.println("Digrafo (a partir representação da matriz de adjacência):");
         ((AdjacencyMatrixDigraph) graph).printMatrix();
         graph.printGraph();
     }

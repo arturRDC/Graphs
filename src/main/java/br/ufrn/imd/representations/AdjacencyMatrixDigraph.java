@@ -1,44 +1,23 @@
 package br.ufrn.imd.representations;
 
-import java.util.List;
-
-public class AdjacencyMatrixDigraph extends Graph{
-    @Override
-    public List<String> findAdjacentVertices(String vertex) {
-        return List.of();
-    }
+public class AdjacencyMatrixDigraph extends AdjacencyMatrixGraph{
 
     @Override
     public void addEdge(String source, String destination) {
-
-    }
-
-    @Override
-    public boolean hasEdge(String source, String destination) {
-        return false;
+        int sourceIndex = vertices.indexOf(source);
+        int destIndex = vertices.indexOf(destination);
+        if (sourceIndex != -1 && destIndex != -1 && !hasEdge(source, destination)) {
+            adjacencyMatrix.get(sourceIndex).set(destIndex, 1);
+        }
     }
 
     @Override
     public void removeEdge(String source, String destination) {
-
+        int sourceIndex = vertices.indexOf(source);
+        int destIndex = vertices.indexOf(destination);
+        if (sourceIndex != -1 && destIndex != -1) {
+            adjacencyMatrix.get(sourceIndex).set(destIndex, 0);
+        }
     }
 
-    @Override
-    public void printGraph() {
-
-    }
-
-    @Override
-    protected void addVertexSpecific(String vertex) {
-
-    }
-
-    @Override
-    protected void removeVertexSpecific(String vertex, int index) {
-
-    }
-
-    public void printMatrix() {
-
-    }
 }
