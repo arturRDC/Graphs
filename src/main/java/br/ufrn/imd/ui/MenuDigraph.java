@@ -84,7 +84,7 @@ public class MenuDigraph {
 //                    solutions.solution22();
                     break;
                 case 23:
-//                    solutions.solution23();
+                    solutions.solution23();
                     break;
                 case 0:
                     System.out.println("Voltando ao menu principal...");
@@ -122,7 +122,7 @@ public class MenuDigraph {
         System.out.println("(20) Conversão de matriz de incidência para estrela direta e vice versa");
         System.out.println("(21) Conversão de matriz de adjacência para estrela reversa e vice-versa");
         System.out.println("(22) Busca em profundidade, com determinação de profundidade de entrada e de saída de cada vértice.");
-        System.out.println("(23) Aplicação usando busca em profundidade ");
+        System.out.println("(23) Aplicação usando busca em profundidade: Ordenação Topológica ");
         System.out.println("(0) Voltar ao menu principal");
         System.out.println("========================");
     }
