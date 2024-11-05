@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdjacencyMatrixGraph extends Graph {
-    private final List<List<Integer>> adjacencyMatrix;
+    protected final List<List<Integer>> adjacencyMatrix;
 
     public AdjacencyMatrixGraph() {
         super();
