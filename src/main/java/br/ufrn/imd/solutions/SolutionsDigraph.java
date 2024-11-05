@@ -4,6 +4,9 @@ import br.ufrn.imd.representations.AdjacencyMatrixDigraph;
 import br.ufrn.imd.representations.Graph;
 import br.ufrn.imd.representations.IncidenceMatrixDigraph;
 import br.ufrn.imd.utils.GraphFileReader;
+import br.ufrn.imd.utils.TopologicalSort;
+
+import java.util.List;
 
 public class SolutionsDigraph {
     private Graph graph;
@@ -48,5 +51,11 @@ public class SolutionsDigraph {
 
     public void setGraph(Graph graph) {
         this.graph = graph;
+    }
+
+    public void solution23() {
+        System.out.println("Ordem Topológica:");
+        List<String> topologicalOrder = new TopologicalSort(graph).sort();
+        System.out.println(topologicalOrder);
     }
 }
