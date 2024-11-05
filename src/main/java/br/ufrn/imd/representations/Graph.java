@@ -137,4 +137,9 @@ public abstract class Graph {
         Map<String, Integer> components = findConnectedComponents(graph);
         return components.values().stream().allMatch(id -> id == 0);
     }
+
+    // Determina se dois vértices são adjacentes
+    public boolean areAdjacent(String vertex1, String vertex2) {
+        return findAdjacentVertices(vertex1).contains(vertex2);
+    }
 }

@@ -88,6 +88,24 @@ public class SolutionsGraph {
         }
     }
 
+    public void solution6() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o primeiro vértice: ");
+        String firstVertex = scanner.nextLine();
+        System.out.print("Digite o segundo vértice: ");
+        String secondVertex = scanner.nextLine();
+
+        if (!graph.hasVertex(firstVertex) || !graph.hasVertex(secondVertex)) {
+            System.out.println("Vértices não encontrados no grafo.");
+            return;
+        }
+        if (graph.areAdjacent(firstVertex, secondVertex)) {
+            System.out.println("Os vértices são adjacentes.");
+        } else {
+            System.out.println("Os vértices não são adjacentes.");
+        }
+    }
+
     public void solution7() {
         int numberOfVertices = graph.getNumberOfVertices();
         System.out.println("Número de vértices no grafo: " + numberOfVertices);
