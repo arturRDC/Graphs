@@ -7,6 +7,7 @@ import br.ufrn.imd.utils.GraphFileReader;
 import br.ufrn.imd.utils.TopologicalSort;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class SolutionsDigraph {
     private Graph graph;
@@ -51,6 +52,17 @@ public class SolutionsDigraph {
 
     public void setGraph(Graph graph) {
         this.graph = graph;
+    }
+
+    public void solution22() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o vértice inicial para a travessia DFS com a determinação de profundidade de entrada e saida de cada vertice: ");
+        String startVertex = scanner.nextLine();
+        if (!graph.hasVertex(startVertex)) {
+            System.out.println("Vértice inicial não encontrado no Digrafo.");
+            return;
+        }
+        graph.dfsWithEntryExit(startVertex);
     }
 
     public void solution23() {

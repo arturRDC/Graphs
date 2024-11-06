@@ -98,14 +98,14 @@ public abstract class Graph {
         // Percorre todos os vértices do grafo
         for (String vertex : graph.vertices) {
             if (!componentMap.containsKey(vertex)) {
-                dfs(vertex, componentId, graph, componentMap);  // Usa DFS iterativa
+                dfs(vertex, componentId, componentMap);  // Usa DFS iterativa
                 componentId++;
             }
         }
         return componentMap;
     }
 
-    public void dfs(String startVertex, int componentId, Graph graph, Map<String, Integer> componentMap) {
+    public void dfs(String startVertex, int componentId, Map<String, Integer> componentMap) {
         Deque<String> stack = new ArrayDeque<>();
         List<String> visitedVertices = new ArrayList<>(); // Lista para armazenar os vértices visitados
         stack.push(startVertex);
@@ -151,4 +151,38 @@ public abstract class Graph {
             System.out.println("Vértice " + vertex + ": grau = " + degree);
         }
     }
+
+    public void dfsWithEntryExit(String startVertex) {
+        // Maps para armazenar o tempo de entrada e saída de cada vértice
+        Map<String, Integer> entryTime = new HashMap<>();
+        Map<String, Integer> exitTime = new HashMap<>();
+        Set<String> visited = new HashSet<>();
+        int[] entryCounter = {1};  // Contador de entrada
+        int[] exitCounter = {1};    // Contador de saída
+
+        // Inicia a DFS com o primeiro vértice
+        dfsWithEntryExitHelper(startVertex, visited, entryTime, exitTime, entryCounter, exitCounter);
+
+        // Exibe os tempos de entrada e saída de cada vértice
+        System.out.println("Tempos de entrada e saída:");
+        for (String vertex : vertices) {
+            System.out.println("Vértice " + vertex + ": entrada = " + entryTime.get(vertex) + ", saída = " + exitTime.get(vertex));
+        }
+    }
+    private void dfsWithEntryExitHelper(String vertex, Set<String> visited, Map<String, Integer> entryTime, Map<String, Integer> exitTime, int[] entryCounter, int[] exitCounter) {
+        // Marca o vértice como visitado e define o tempo de entrada
+        visited.add(vertex);
+        entryTime.put(vertex, entryCounter[0]++);  // Incrementa apenas o contador de entrada
+
+        // Para cada vizinho não visitado, realiza a DFS recursiva
+        for (String neighbor : findAdjacentVertices(vertex)) {
+            if (!visited.contains(neighbor)) {
+                dfsWithEntryExitHelper(neighbor, visited, entryTime, exitTime, entryCounter, exitCounter);
+            }
+        }
+
+        // Define o tempo de saída após explorar todos os vizinhos
+        exitTime.put(vertex, exitCounter[0]++);
+    }
+
 }
