@@ -81,7 +81,7 @@ public class MenuDigraph {
 //                    solutions.solution21();
                     break;
                 case 22:
-//                    solutions.solution22();
+                    solutions.solution22();
                     break;
                 case 23:
                     solutions.solution23();

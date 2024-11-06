@@ -339,7 +339,7 @@ public class SolutionsGraph {
             System.out.println("Vértice inicial não encontrado no grafo.");
             return;
         }
-        graph.dfs(startVertex, 0, graph, new HashMap<>());
+        graph.dfs(startVertex, 0, new HashMap<>());
     }
 
     public void solution16() {

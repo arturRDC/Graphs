@@ -81,4 +81,27 @@ public class IncidenceMatrixDigraph extends IncidenceMatrixGraph {
             System.out.println(edgeString);
         }
     }
+
+    @Override
+    public List<String> findAdjacentVertices(String vertex) {
+        int vertexIndex = vertices.indexOf(vertex);
+        List<String> adjacentVertices = new ArrayList<>();
+
+        if (vertexIndex == -1) {
+            return adjacentVertices; // Vértice não encontrado
+        }
+
+        // Iterar sobre a matriz de incidência para encontrar arestas que incluem o vértice
+        for (List<Integer> row : incidenceMatrix) {
+            if (row.get(vertexIndex) == 1) {
+                // Achar o outro vértice na aresta
+                for (int i = 0; i < row.size(); i++) {
+                    if (i != vertexIndex && row.get(i) == -1) {
+                        adjacentVertices.add(vertices.get(i));
+                    }
+                }
+            }
+        }
+        return adjacentVertices;
+    }
 }
