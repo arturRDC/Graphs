@@ -76,7 +76,7 @@ public class MenuGraph {
                     lastChoice = choiceWrapper.get();
                     break;
                 case 5:
-//                    solutions.solution5();
+                    solutions.solution5();
                     break;
                 case 6:
                     solutions.solution6();

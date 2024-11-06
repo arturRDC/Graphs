@@ -88,6 +88,10 @@ public class SolutionsGraph {
         }
     }
 
+    public void solution5() {
+        graph.calculateVertexDegrees();
+    }
+
     public void solution6() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o primeiro vértice: ");
@@ -347,4 +351,6 @@ public class SolutionsGraph {
         articulationPoints.findArticulationPointsAndBlocks();
         articulationPoints.printResults();
     }
+
+
 }

@@ -143,6 +143,15 @@ public abstract class Graph {
         return findAdjacentVertices(vertex1).contains(vertex2);
     }
 
+    public void calculateVertexDegrees() {
+        System.out.println("Grau de cada vértice:");
+
+        for (String vertex : getVertices()) {
+            int degree = findAdjacentVertices(vertex).size();
+            System.out.println("Vértice " + vertex + ": grau = " + degree);
+        }
+    }
+
     public void dfsWithEntryExit(String startVertex) {
         // Maps para armazenar o tempo de entrada e saída de cada vértice
         Map<String, Integer> entryTime = new HashMap<>();
