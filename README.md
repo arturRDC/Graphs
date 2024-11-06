@@ -1,47 +1,39 @@
 # Grafos
 
-Este repositório contém o projeto desenvolvido para a disciplina de Grafos na Universidade Federal do Rio Grande do Norte. O projeto é escrito em Java e implementa soluções para diversos problemas relacionados a grafos.
+Este repositório contém o projeto desenvolvido para a disciplina de Grafos da Universidade Federal do Rio Grande do Norte (UFRN). O projeto foi escrito em Java e abrange a implementação de estruturas de dados para grafos, além de soluções de problemas relacionados ao tema.
 
 ## Estrutura do Projeto
 
-- **Pacote `br.ufrn.imd.solutions`**: Contém os pontos de entrada para as soluções dos problemas.
-- **Pacote `br.ufrn.imd.representations`**: Este pacote define as estruturas de dados para representar os grafos utilizados na resolução dos problemas, como listas de adjacência, matrizes de adjacência, entre outros.
+- **Ponto de entrada**: As classes `MenuGraph` e `MenuDigraph`, localizadas no pacote `br.ufrn.imd.ui`, representam os pontos de entrada principais do projeto, onde a execução inicial do programa ocorre.
+- **Representações de grafos**: O pacote `br.ufrn.imd.representations` contém as estruturas de dados dos grafos utilizadas para resolver os problemas propostos.
+- **Soluções**: No pacote `br.ufrn.imd.solutions` encontram-se as soluções completas, que fazem uso das representações dos grafos para a resolução dos problemas abordados no projeto.
+- **Utilidades**: O pacote `br.ufrn.imd.utils` inclui funcionalidades auxiliares, utilizadas para tarefas diversas no projeto.
+- **Entrada de dados**: A pasta `inputs` contém os arquivos de entrada que devem ser utilizados com o programa para testes e execução das soluções. Os arquivos a serem lidos devem ser informados ao programa como: `inputs/` `nome_do_arquivo.txt`
 
-## Como Executar
+## Grupo
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/arturRDC/Graphs.git
-   ```
-2. Importe o projeto em sua IDE de preferência (por exemplo, IntelliJ IDEA, Eclipse).
-3. Navegue até o pacote `br.ufrn.imd.solutions` e execute as classes conforme necessário.
-
-## Alunos
-
+Este projeto foi desenvolvido pelos seguintes alunos:
 - Artur Ribeiro da Cunha
-- Jeremias Saldanha dos Santos
+- Dawerton Eduardo Carlos Vaz
+- Mirna Gardenia Galvão de Medeiros
 
 ---
 
 # Graphs
 
-This repository contains the project developed for the Graphs course at the Federal University of Rio Grande do Norte. The project is written in Java and implements solutions for various graph-related problems.
+This repository contains the university project developed for the Graphs course at the Federal University of Rio Grande do Norte (UFRN). The project was written in Java and includes the implementation of data structures for graphs, as well as solutions for graph-related problems.
 
 ## Project Structure
 
-- **Package `br.ufrn.imd.solutions`**: Contains the entry points for solving the problems.
-- **Package `br.ufrn.imd.representations`**: This package defines the data structures used to represent graphs for solving the problems, such as adjacency lists, adjacency matrices, and others.
+- **Entry Points**: The `MenuGraph` and `MenuDigraph` classes, located in the `br.ufrn.imd.ui` package, serve as the main entry points of the project, where the initial program execution takes place.
+- **Graph Representations**: The `br.ufrn.imd.representations` package contains the graph data structures used to solve the proposed problems.
+- **Solutions**: The `br.ufrn.imd.solutions` package holds the complete solutions, which use the graph representations to address the problems covered in the project.
+- **Utilities**: The `br.ufrn.imd.utils` package includes auxiliary functionalities, used for various tasks within the project.
+- **Input Data**: The `inputs` folder contains the input files to be used with the program for testing and executing the solutions. The input files should be referred in the program as:  `inputs/` `file_name.txt`
 
-## How to Run
+## Team
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/arturRDC/Graphs.git
-   ```
-2. Import the project into your preferred IDE (e.g., IntelliJ IDEA, Eclipse).
-3. Navigate to the `br.ufrn.imd.solutions` package and run the classes as needed.
-
-## Students
-
+This project was developed by the following students:
 - Artur Ribeiro da Cunha
-- Jeremias Saldanha dos Santos
+- Dawerton Eduardo Carlos Vaz
+- Mirna Gardenia Galvão de Medeiros
