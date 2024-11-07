@@ -150,6 +150,14 @@ public class SolutionsGraph {
         }
     }
 
+    public void solution12() {
+        if (graph.isBipartite()) {
+            System.out.println("O grafo é bipartido.");
+        } else {
+            System.out.println("O grafo não é bipartido.");
+        }
+    }
+
     public Graph getGraph() {
         return graph;
     }
