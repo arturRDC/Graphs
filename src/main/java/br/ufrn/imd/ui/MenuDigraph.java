@@ -72,7 +72,7 @@ public class MenuDigraph {
 
             switch (stageChoice) {
                 case 19:
-//                    solutions.solution19();
+                    solutions.solution19();
                     break;
                 case 20:
 //                    solutions.solution20();

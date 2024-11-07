@@ -46,6 +46,28 @@ public class SolutionsDigraph {
         graph.printGraph();
     }
 
+    public void solution19() {
+        Graph undirectedGraph = new AdjacencyMatrixDigraph();
+
+        // Adiciona todos os vértices do dígrafo ao grafo subjacente
+        for (String vertex : graph.getVertices()) {
+            undirectedGraph.addVertex(vertex);
+        }
+
+        // Adiciona arestas não direcionadas para cada aresta direcionada no grafo original
+        for (String vertex : graph.getVertices()) {
+            for (String neighbor : graph.findAdjacentVertices(vertex)) {
+                if (!undirectedGraph.hasEdge(vertex, neighbor)) {
+                    undirectedGraph.addEdge(vertex, neighbor);  // Aresta (u, v)
+                    undirectedGraph.addEdge(neighbor, vertex);  // Aresta (v, u) para não direcionado
+                }
+            }
+        }
+
+        System.out.println("Grafo subjacente:");
+        undirectedGraph.printGraph();
+    }
+
     public Graph getGraph() {
         return graph;
     }
