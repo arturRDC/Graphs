@@ -185,4 +185,38 @@ public abstract class Graph {
         exitTime.put(vertex, exitCounter[0]++);
     }
 
+    public boolean isBipartite() {
+        Map<String, Integer> colors = new HashMap<>();
+        for (String vertex : vertices) {
+            // Se o vértice ainda não foi colorido, inicia a BFS para ele
+            if (!colors.containsKey(vertex) && !bfsColoring(vertex, colors)) {
+                    return false;
+                }
+        }
+        return true;
+    }
+
+    private boolean bfsColoring(String startVertex, Map<String, Integer> colors) {
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(startVertex);
+        colors.put(startVertex, 0);  // Começa colorindo o primeiro vértice com 0
+
+        while (!queue.isEmpty()) {
+            String current = queue.poll();
+            int currentColor = colors.get(current);
+
+            for (String neighbor : findAdjacentVertices(current)) {
+                if (!colors.containsKey(neighbor)) {
+                    // Se o vizinho ainda não foi colorido, colorimos com a cor oposta
+                    colors.put(neighbor, 1 - currentColor);
+                    queue.offer(neighbor);
+                } else if (colors.get(neighbor) == currentColor) {
+                    // Se o vizinho já tiver a mesma cor, o grafo não é bipartido
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
