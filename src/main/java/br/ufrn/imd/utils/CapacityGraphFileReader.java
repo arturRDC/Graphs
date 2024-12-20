@@ -1,21 +1,23 @@
 package br.ufrn.imd.utils;
 
-import br.ufrn.imd.representations.Graph;
+import br.ufrn.imd.representations.AdjacencyMatrixGraph;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 
-public class GraphFileReader {
+public class CapacityGraphFileReader {
     private String fileName;
 
     // Ler um arquivo contendo informações sobre vertices e arestas, gerando um grafo
-    public void read(Graph graph) {
+    public void read(AdjacencyMatrixGraph graph) {
         if (fileName == null || fileName.isEmpty()) {
             System.err.println("Nome do arquivo não informado");
             return;
         }
 
+        System.out.println("Lendo arquivo " + fileName);
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             // Ler o número de vértices da primeira linha
             int numVertices = Integer.parseInt(br.readLine().trim());
@@ -26,7 +28,7 @@ public class GraphFileReader {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 2) {
+                if (parts.length == 3) {
                     String vertex1 = parts[0].trim();
                     String vertex2 = parts[1].trim();
 
@@ -39,6 +41,9 @@ public class GraphFileReader {
 
                     // Adicionar a aresta
                     graph.addEdge(vertex1, vertex2);
+
+                    String weight = parts[2].trim();
+                    graph.setCapacity(vertex1, vertex2, Integer.parseInt(weight));
                 }
                 else {
                     graph.addVertex(line.trim());
