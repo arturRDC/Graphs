@@ -1,6 +1,6 @@
 package br.ufrn.imd.representations;
 
-public class AdjacencyMatrixDigraph extends AdjacencyMatrixGraph{
+public class AdjacencyMatrixDigraph extends AdjacencyMatrixGraph {
 
     @Override
     public void addEdge(String source, String destination) {
@@ -20,4 +20,17 @@ public class AdjacencyMatrixDigraph extends AdjacencyMatrixGraph{
         }
     }
 
+    @Override
+    public void setWeight(String vertex1, String vertex2, int weight) {
+        int sourceIndex = vertices.indexOf(vertex1);
+        int destIndex = vertices.indexOf(vertex2);
+        weightMatrix.get(sourceIndex).set(destIndex, weight);
+    }
+
+    @Override
+    public void setCapacity(String vertex1, String vertex2, int capacity) {
+        int sourceIndex = vertices.indexOf(vertex1);
+        int destIndex = vertices.indexOf(vertex2);
+        capacityMatrix.get(sourceIndex).set(destIndex, capacity);
+    }
 }
