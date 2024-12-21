@@ -76,7 +76,7 @@ public class SolutionsGraph2 {
         graph = new AdjacencyMatrixDigraph();
         capacityGraphFileReader.read(graph);
         FordFulkersonSolver solver = new FordFulkersonSolver(graph);
-        System.out.println("Ford-Fulkerson: " + solver.solve("s", "t"));
+        System.out.println("O fluxo máximo é: " + solver.solve("s", "t"));
     }
 
     public void solution11(String fileName) {
