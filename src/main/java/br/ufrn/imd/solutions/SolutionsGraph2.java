@@ -3,6 +3,7 @@ package br.ufrn.imd.solutions;
 import br.ufrn.imd.representations.AdjacencyMatrixDigraph;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.CapacityGraphFileReader;
+import br.ufrn.imd.utils.FordFulkersonSolver;
 import br.ufrn.imd.utils.WeightedGraphFileReader;
 
 public class SolutionsGraph2 {
@@ -74,6 +75,8 @@ public class SolutionsGraph2 {
         capacityGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixDigraph();
         capacityGraphFileReader.read(graph);
+        FordFulkersonSolver solver = new FordFulkersonSolver(graph);
+        System.out.println("Ford-Fulkerson: " + solver.solve("s", "t"));
     }
 
     public void solution11(String fileName) {
