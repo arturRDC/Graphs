@@ -4,6 +4,7 @@ import br.ufrn.imd.representations.AdjacencyMatrixDigraph;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.CapacityGraphFileReader;
 import br.ufrn.imd.utils.FordFulkersonSolver;
+import br.ufrn.imd.utils.KruskalAlgorithm;
 import br.ufrn.imd.utils.WeightedGraphFileReader;
 
 public class SolutionsGraph2 {
@@ -21,6 +22,9 @@ public class SolutionsGraph2 {
         weightedGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixGraph();
         weightedGraphFileReader.read(graph);
+
+        KruskalAlgorithm kruskal = new KruskalAlgorithm();
+        kruskal.findMinimumSpanningTree(graph);
     }
 
     public void solution2(String fileName) {
