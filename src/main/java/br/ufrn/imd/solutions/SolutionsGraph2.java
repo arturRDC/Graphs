@@ -3,6 +3,7 @@ package br.ufrn.imd.solutions;
 import br.ufrn.imd.representations.AdjacencyMatrixDigraph;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.CapacityGraphFileReader;
+import br.ufrn.imd.utils.DijkstraAlgorithm;
 import br.ufrn.imd.utils.FordFulkersonSolver;
 import br.ufrn.imd.utils.KruskalAlgorithm;
 import br.ufrn.imd.utils.WeightedGraphFileReader;
@@ -49,6 +50,9 @@ public class SolutionsGraph2 {
         weightedGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixDigraph();
         weightedGraphFileReader.read(graph);
+
+        DijkstraAlgorithm dijkstra = new DijkstraAlgorithm();
+        dijkstra.findShortestPaths(graph, "4");
     }
 
     public void solution6(String fileName) {
