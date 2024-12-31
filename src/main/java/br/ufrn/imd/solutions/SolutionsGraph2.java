@@ -8,6 +8,7 @@ import br.ufrn.imd.utils.FordFulkersonSolver;
 import br.ufrn.imd.utils.KruskalAlgorithm;
 import br.ufrn.imd.utils.PrimAlgorithm;
 import br.ufrn.imd.utils.WeightedGraphFileReader;
+import br.ufrn.imd.utils.EdmondsKarpSolver;
 
 public class SolutionsGraph2 {
     private AdjacencyMatrixGraph graph;
@@ -95,6 +96,8 @@ public class SolutionsGraph2 {
         capacityGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixDigraph();
         capacityGraphFileReader.read(graph);
+        EdmondsKarpSolver solver = new EdmondsKarpSolver(graph);
+        System.out.println("O fluxo máximo é: " + solver.solve("s", "t"));
     }
 
     public void setGraph(AdjacencyMatrixGraph graph) {
