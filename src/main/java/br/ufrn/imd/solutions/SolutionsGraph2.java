@@ -6,6 +6,7 @@ import br.ufrn.imd.utils.CapacityGraphFileReader;
 import br.ufrn.imd.utils.DijkstraAlgorithm;
 import br.ufrn.imd.utils.FordFulkersonSolver;
 import br.ufrn.imd.utils.KruskalAlgorithm;
+import br.ufrn.imd.utils.PrimAlgorithm;
 import br.ufrn.imd.utils.WeightedGraphFileReader;
 
 public class SolutionsGraph2 {
@@ -32,6 +33,9 @@ public class SolutionsGraph2 {
         weightedGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixGraph();
         weightedGraphFileReader.read(graph);
+
+        PrimAlgorithm prim = new PrimAlgorithm();
+        prim.findMinimumSpanningTree(graph);
     }
 
     public void solution3(String fileName) {
