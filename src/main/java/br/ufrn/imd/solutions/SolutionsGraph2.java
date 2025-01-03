@@ -9,6 +9,7 @@ import br.ufrn.imd.utils.KruskalAlgorithm;
 import br.ufrn.imd.utils.PrimAlgorithm;
 import br.ufrn.imd.utils.WeightedGraphFileReader;
 import br.ufrn.imd.utils.EdmondsKarpSolver;
+import br.ufrn.imd.utils.HierholzerSolver;
 
 public class SolutionsGraph2 {
     private AdjacencyMatrixGraph graph;
@@ -74,8 +75,11 @@ public class SolutionsGraph2 {
 
     public void solution8(String fileName) {
         weightedGraphFileReader.setFileName(fileName);
-        graph = new AdjacencyMatrixGraph();
+        graph = new AdjacencyMatrixDigraph();
         weightedGraphFileReader.read(graph);
+        HierholzerSolver solver = new HierholzerSolver(graph);
+        System.out.println("Calculando ciclo euleriano...");
+        solver.solve(graph.getVertices().get(0));
     }
 
     public void solution9(String fileName) {

@@ -48,7 +48,7 @@ public class MenuGraph2 {
                     solutions.solution7("inputs/DIGRAFO5.txt");
                     break;
                 case 8:
-                    solutions.solution8("inputs/GRAFO4.txt");
+                    solutions.solution8("inputs/DIGRAFO7.txt");
                     break;
                 case 9:
                     solutions.solution9("inputs/DIGRAFO5.txt");
