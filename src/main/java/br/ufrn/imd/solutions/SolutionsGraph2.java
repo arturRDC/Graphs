@@ -2,6 +2,7 @@ package br.ufrn.imd.solutions;
 
 import br.ufrn.imd.representations.AdjacencyMatrixDigraph;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
+import br.ufrn.imd.utils.BellmanFordAlgorithm;
 import br.ufrn.imd.utils.CapacityGraphFileReader;
 import br.ufrn.imd.utils.DijkstraAlgorithm;
 import br.ufrn.imd.utils.FordFulkersonSolver;
@@ -65,6 +66,9 @@ public class SolutionsGraph2 {
         weightedGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixDigraph();
         weightedGraphFileReader.read(graph);
+
+        BellmanFordAlgorithm bellmanFord = new BellmanFordAlgorithm();
+        bellmanFord.findShortestPaths(graph, "4");
     }
 
     public void solution7(String fileName) {
