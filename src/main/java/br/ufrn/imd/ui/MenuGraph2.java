@@ -42,13 +42,14 @@ public class MenuGraph2 {
                     solutions.solution5("inputs/DIGRAFO5.txt");
                     break;
                 case 6:
+                    // solutions.solution6("inputs/negative-weight-cycle.txt");
                     solutions.solution6("inputs/DIGRAFO5.txt");
                     break;
                 case 7:
                     solutions.solution7("inputs/DIGRAFO5.txt");
                     break;
                 case 8:
-                    solutions.solution8("inputs/GRAFO4.txt");
+                    solutions.solution8("inputs/DIGRAFO7.txt");
                     break;
                 case 9:
                     solutions.solution9("inputs/DIGRAFO5.txt");
