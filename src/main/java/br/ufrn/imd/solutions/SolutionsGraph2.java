@@ -2,6 +2,8 @@ package br.ufrn.imd.solutions;
 
 import br.ufrn.imd.representations.AdjacencyMatrixDigraph;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
+import br.ufrn.imd.utils.*;
+import java.util.List;
 import br.ufrn.imd.utils.BellmanFordAlgorithm;
 import br.ufrn.imd.utils.CapacityGraphFileReader;
 import br.ufrn.imd.utils.DijkstraAlgorithm;
@@ -51,6 +53,14 @@ public class SolutionsGraph2 {
         weightedGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixDigraph();
         weightedGraphFileReader.read(graph);
+
+        ChuLiuEdmondsAlgorithm chuLiuEdmonds = new ChuLiuEdmondsAlgorithm();
+        List<String[]> result = chuLiuEdmonds.findMinimumSpanningArborescence((AdjacencyMatrixDigraph) graph, "1");
+
+        System.out.println("Árvore Geradora Mínima Direcionada:");
+        for (String[] edge : result) {
+            System.out.println(edge[0] + " -> " + edge[1]);
+        }
     }
 
     public void solution5(String fileName) {
