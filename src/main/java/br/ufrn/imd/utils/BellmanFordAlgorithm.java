@@ -30,7 +30,7 @@ public class BellmanFordAlgorithm {
             for (String u : graph.getVertices()) {
                 for (String v : graph.findAdjacentVertices(u)) {
                     int weight = graph.getWeight(u, v);
-                    if (weight != 0 && weight != Integer.MAX_VALUE) { // Se há aresta de u para v
+                    if (graph.hasEdge(u,v)) { // Se há aresta de u para v
                         if (distances.get(u) != Integer.MAX_VALUE && distances.get(u) + weight < distances.get(v)) {
 
                             // Verificação de ciclo negativo na última iteração

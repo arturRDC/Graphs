@@ -5,6 +5,7 @@ import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.BellmanFordAlgorithm;
 import br.ufrn.imd.utils.CapacityGraphFileReader;
 import br.ufrn.imd.utils.DijkstraAlgorithm;
+import br.ufrn.imd.utils.FloydWarshallAlgorithm;
 import br.ufrn.imd.utils.FordFulkersonSolver;
 import br.ufrn.imd.utils.KruskalAlgorithm;
 import br.ufrn.imd.utils.PrimAlgorithm;
@@ -75,6 +76,9 @@ public class SolutionsGraph2 {
         weightedGraphFileReader.setFileName(fileName);
         graph = new AdjacencyMatrixDigraph();
         weightedGraphFileReader.read(graph);
+
+        FloydWarshallAlgorithm floydWarshall = new FloydWarshallAlgorithm();
+        floydWarshall.findAllPairsShortestPaths(graph);
     }
 
     public void solution8(String fileName) {
