@@ -9,12 +9,14 @@ public class AdjacencyMatrixGraph extends Graph {
     protected final List<List<Integer>> adjacencyMatrix;
     protected List<List<Integer>> weightMatrix;
     protected List<List<Integer>> capacityMatrix;
+    protected List<List<Double>> costMatrix;
 
     public AdjacencyMatrixGraph() {
         super();
         this.adjacencyMatrix = new ArrayList<>();
         this.weightMatrix = new ArrayList<>();
         this.capacityMatrix = new ArrayList<>();
+        this.costMatrix = new ArrayList<>();
     }
 
     // Retorna a lista de vértices adjacentes a um vértice
@@ -43,17 +45,20 @@ public class AdjacencyMatrixGraph extends Graph {
         adjacencyMatrix.add(new ArrayList<>(currentSize));
         weightMatrix.add(new ArrayList<>(currentSize));
         capacityMatrix.add(new ArrayList<>(currentSize));
+        costMatrix.add(new ArrayList<>(currentSize));
 
         // Preencher todas as linhas para manter dimensões quadradas
         for (int i = 0; i < currentSize; i++) {
             List<Integer> adjRow = adjacencyMatrix.get(i);
             List<Integer> weightRow = weightMatrix.get(i);
             List<Integer> capRow = capacityMatrix.get(i);
+            List<Double> costRow = costMatrix.get(i);
 
             while (adjRow.size() < currentSize) {
                 adjRow.add(0);
                 weightRow.add(0);
                 capRow.add(0);
+                costRow.add(0.0);
             }
         }
     }
@@ -168,6 +173,12 @@ public class AdjacencyMatrixGraph extends Graph {
         return capacityMatrix.get(sourceIndex).get(destIndex);
     }
 
+    public Double getCost(String vertex1, String vertex2) {
+        int sourceIndex = vertices.indexOf(vertex1);
+        int destIndex = vertices.indexOf(vertex2);
+        return costMatrix.get(sourceIndex).get(destIndex);
+    }
+
     public void setWeight(String vertex1, String vertex2, int weight) {
         int sourceIndex = vertices.indexOf(vertex1);
         int destIndex = vertices.indexOf(vertex2);
@@ -180,5 +191,12 @@ public class AdjacencyMatrixGraph extends Graph {
         int destIndex = vertices.indexOf(vertex2);
         capacityMatrix.get(sourceIndex).set(destIndex, capacity);
         capacityMatrix.get(destIndex).set(sourceIndex, capacity);
+    }
+
+    public void setCost(String vertex1, String vertex2, double cost) {
+        int sourceIndex = vertices.indexOf(vertex1);
+        int destIndex = vertices.indexOf(vertex2);
+        costMatrix.get(sourceIndex).set(destIndex, cost);
+        costMatrix.get(destIndex).set(sourceIndex, cost);
     }
 }
