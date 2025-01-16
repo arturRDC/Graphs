@@ -2,6 +2,7 @@ package br.ufrn.imd.solutions;
 
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.CostGraphFileReader;
+import br.ufrn.imd.utils.GraspSolver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,21 +56,36 @@ public class SolutionsGraph3 {
 
     public void solution3(String fileName) {
         readGraphData(fileName);
+        GraspSolver graspSolver = new GraspSolver(graph, "1");
+        graspSolver.useQualityRestriction();
+        graspSolver.setAlpha(0.3);
         System.out.println("Executando Algoritmo GRASP...");
 
+        List<String> currentSolution;
+        List<String> bestSolution = new ArrayList<>();
+        Double bestCost = Double.MAX_VALUE / 2;
+        Double currentCost;
         for (int i = 0; i < EXECUTIONS_AMOUNT; i++) {
             startTimer();
-            // TODO: Algoritmo GRASP
+            currentSolution = graspSolver.solve();
+            currentCost = graspSolver.calculateSolutionCost(currentSolution);
+
+            if (currentCost < bestCost) {
+                bestCost = currentCost;
+                bestSolution = currentSolution;
+            }
             endTimer();
             times.add(endTime - startTime);
         }
         printAverageElapsedTime();
+        System.out.println("Melhor custo GRASP: " + bestCost);
+        System.out.println("Melhor Solução GRASP: " + bestSolution);
 
-        System.out.println("Executando Busca Local...");
-        startTimer();
-        // TODO: Busca Local
-        endTimer();
-        printElapsedTime();
+//        System.out.println("Executando Busca Local...");
+//        startTimer();
+//        // TODO: Busca Local
+//        endTimer();
+//        printElapsedTime();
     }
 
     private void readGraphData(String fileName) {
