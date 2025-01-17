@@ -160,6 +160,7 @@ public class GraspSolver {
         for (int i = 0; i < solution.size() - 1; i++) {
             overallCost += graph.getCost(solution.get(i), solution.get(i + 1));
         }
+        overallCost += graph.getCost(solution.get(solution.size() - 1), solution.get(0));
         return overallCost;
     }
 
@@ -180,7 +181,6 @@ public class GraspSolver {
             currentVertex = getRandomNeighbor();
             visitCurrentVertex();
         }
-        solution.add(startingVertex); // Fecha o ciclo
         return solution;
     }
 
