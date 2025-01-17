@@ -33,7 +33,7 @@ public class GraspSolver {
     private String currentVertex; // Vértice atual
     private RestrictionType restrictionType; // Tipo de restrição aplicada
     private final Set<String> visited; // Conjunto de vértices visitados
-    private final List<String> solution; // Lista que armazena a solução construída
+    private List<String> solution; // Lista que armazena a solução construída
 
     /**
      * Construtor da classe GraspSolver.
@@ -197,7 +197,7 @@ public class GraspSolver {
      */
     private void clearDataStructures() {
         visited.clear();
-        solution.clear();
+        solution = new ArrayList<>();
         currentVertex = startingVertex;
     }
 }
