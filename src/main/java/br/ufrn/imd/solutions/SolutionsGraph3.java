@@ -3,6 +3,7 @@ package br.ufrn.imd.solutions;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.CostGraphFileReader;
 import br.ufrn.imd.utils.GraspSolver;
+import br.ufrn.imd.utils.TwoOptLocalSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,11 +82,16 @@ public class SolutionsGraph3 {
         System.out.println("Melhor custo GRASP: " + bestCost);
         System.out.println("Melhor Solução GRASP: " + bestSolution);
 
-//        System.out.println("Executando Busca Local...");
-//        startTimer();
-//        // TODO: Busca Local
-//        endTimer();
-//        printElapsedTime();
+
+        System.out.println("Executando Busca Local 2-opt...");
+        startTimer();
+        TwoOptLocalSearch twoOptLocalSearch = new TwoOptLocalSearch(graph);
+        List<String> twoOptSolution = twoOptLocalSearch.search(bestSolution);
+        endTimer();
+        printElapsedTime();
+        System.out.println("Melhor solução busca local: " + twoOptSolution);
+        System.out.println("Custo total da melhor solução busca local: " +
+                twoOptLocalSearch.calculateSolutionCost(twoOptSolution));
     }
 
     private void readGraphData(String fileName) {
