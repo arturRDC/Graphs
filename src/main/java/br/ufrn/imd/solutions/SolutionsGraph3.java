@@ -3,6 +3,7 @@ package br.ufrn.imd.solutions;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.CostGraphFileReader;
 import br.ufrn.imd.utils.GraspSolver;
+import br.ufrn.imd.utils.SwapLocalSearch;
 import br.ufrn.imd.utils.TwoOptLocalSearch;
 
 import java.util.ArrayList;
@@ -79,19 +80,31 @@ public class SolutionsGraph3 {
             times.add(endTime - startTime);
         }
         printAverageElapsedTime();
-        System.out.println("Melhor custo GRASP: " + bestCost);
-        System.out.println("Melhor Solução GRASP: " + bestSolution);
+        printResults("GRASP", bestCost, bestSolution);
+
+        System.out.println("Executando Busca Local swap...");
+        startTimer();
+        SwapLocalSearch swapLocalSearch = new SwapLocalSearch(graph);
+        List<String> swapSolution = swapLocalSearch.search(bestSolution);
+        endTimer();
+        printElapsedTime();
+        Double swapCost = swapLocalSearch.calculateSolutionCost(swapSolution);
+        printResults("Swap", swapCost, swapSolution);
 
 
         System.out.println("Executando Busca Local 2-opt...");
         startTimer();
         TwoOptLocalSearch twoOptLocalSearch = new TwoOptLocalSearch(graph);
-        List<String> twoOptSolution = twoOptLocalSearch.search(bestSolution);
+        List<String> twoOptSolution = twoOptLocalSearch.search(swapSolution);
         endTimer();
         printElapsedTime();
-        System.out.println("Melhor solução busca local: " + twoOptSolution);
-        System.out.println("Custo total da melhor solução busca local: " +
-                twoOptLocalSearch.calculateSolutionCost(twoOptSolution));
+        Double twoOptCost = twoOptLocalSearch.calculateSolutionCost(twoOptSolution);
+        printResults("2-opt", twoOptCost, twoOptSolution);
+    }
+
+    private static void printResults(String alg, Double bestCost, List<String> bestSolution) {
+        System.out.println("Melhor custo " + alg + ": " + bestCost);
+        System.out.println("Melhor Solução " + alg + ": " + bestSolution + "\n");
     }
 
     private void readGraphData(String fileName) {
@@ -101,22 +114,22 @@ public class SolutionsGraph3 {
     }
 
     private void startTimer() {
-        startTime = System.nanoTime();
+        startTime = System.nanoTime() / 1000;
     }
 
     private void endTimer() {
-        endTime = System.nanoTime();
+        endTime = System.nanoTime() / 1000;
     }
 
     private void printElapsedTime() {
         long elapsedTime = endTime - startTime;
-        System.out.println("Tempo percorrido: " + elapsedTime + " nanosegundos");
+        System.out.println("Tempo percorrido: " + elapsedTime + " microsegundos");
     }
 
     private void printAverageElapsedTime() {
         OptionalDouble average = times.stream().mapToLong(Long::longValue).average();
         if (average.isPresent()) {
-            System.out.println("Tempo médio: " + average.getAsDouble() + " nanosegundos");
+            System.out.println("Tempo médio: " + average.getAsDouble() + " microsegundos");
         } else {
             System.out.println("Tempo médio: Não há valores para calcular a média");
         }
