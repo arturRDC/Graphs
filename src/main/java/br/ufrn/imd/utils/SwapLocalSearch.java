@@ -68,7 +68,7 @@ public class SwapLocalSearch {
             Double currentCost = calculateSolutionCost(currentSolution);
 
             // Itera sobre todas as possíveis combinações de i e j
-            for (int i = 0; i < currentSolution.size() - 1; i++) {
+            for (int i = 1; i < currentSolution.size() - 1; i++) {
                 for (int j = i + 1; j < currentSolution.size(); j++) {
                     // Realiza o swap e calcula o custo da nova solução
                     List<String> newSolution = twoOptSwap(currentSolution, i, j);
