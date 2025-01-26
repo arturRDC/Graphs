@@ -32,12 +32,6 @@ public class SolutionsGraph3 {
         // TODO: Algoritmo Guloso
         endTimer();
         printElapsedTime();
-
-//        System.out.println("Executando Busca Local...");
-//        startTimer();
-        // TODO: Busca Local
-//        endTimer();
-//        printElapsedTime();
     }
 
     public void solution2(String fileName) {
@@ -48,12 +42,6 @@ public class SolutionsGraph3 {
         // TODO: Algoritmo da Inserção mais barata
         endTimer();
         printElapsedTime();
-
-//        System.out.println("Executando Busca Local...");
-//        startTimer();
-        // TODO (OPT): Busca Local
-//        endTimer();
-//        printElapsedTime();
     }
 
     public void solution3(String fileName) {
