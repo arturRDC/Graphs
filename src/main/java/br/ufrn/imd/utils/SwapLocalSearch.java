@@ -44,7 +44,7 @@ public class SwapLocalSearch {
      * @param j Índice final do segmento a ser invertido.
      * @return Nova solução gerada após o swap.
      */
-    private List<String> twoOptSwap(List<String> solution, int i, int j) {
+    private List<String> swap(List<String> solution, int i, int j) {
         List<String> newSolution = new ArrayList<>(solution);
 
         Collections.swap(newSolution, i, j);
@@ -71,7 +71,7 @@ public class SwapLocalSearch {
             for (int i = 1; i < currentSolution.size() - 1; i++) {
                 for (int j = i + 1; j < currentSolution.size(); j++) {
                     // Realiza o swap e calcula o custo da nova solução
-                    List<String> newSolution = twoOptSwap(currentSolution, i, j);
+                    List<String> newSolution = swap(currentSolution, i, j);
                     Double newCost = calculateSolutionCost(newSolution);
 
                     // Substitui a solução atual pela nova se o custo for menor
