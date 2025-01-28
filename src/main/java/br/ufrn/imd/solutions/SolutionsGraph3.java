@@ -1,11 +1,8 @@
 package br.ufrn.imd.solutions;
 
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
-import br.ufrn.imd.utils.CostGraphFileReader;
-import br.ufrn.imd.utils.GraspSolver;
-import br.ufrn.imd.utils.GreedyAlgorithm;
-import br.ufrn.imd.utils.SwapLocalSearch;
-import br.ufrn.imd.utils.TwoOptLocalSearch;
+import br.ufrn.imd.utils.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +40,14 @@ public class SolutionsGraph3 {
         readGraphData(fileName);
         System.out.println("Executando Algoritmo da Inserção mais barata...");
 
+        CheapestInsertion insercaoMaisBarata = new CheapestInsertion(graph);
         startTimer();
-        // TODO: Algoritmo da Inserção mais barata
+        List<String> solution = insercaoMaisBarata.solve();
+        Double cost = insercaoMaisBarata.calculateSolutionCost(solution);
         endTimer();
+
+        System.out.println("Solução encontrada: " + solution);
+        System.out.println("Custo total: " + cost);
         printElapsedTime();
     }
 
