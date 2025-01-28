@@ -3,6 +3,7 @@ package br.ufrn.imd.solutions;
 import br.ufrn.imd.representations.AdjacencyMatrixGraph;
 import br.ufrn.imd.utils.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -25,10 +26,14 @@ public class SolutionsGraph3 {
     public void solution1(String fileName) {
         readGraphData(fileName);
         System.out.println("Executando Algoritmo Guloso...");
+        GreedyAlgorithm greedyAlgorithm = new GreedyAlgorithm(graph);
+
         startTimer();
-        // TODO: Algoritmo Guloso
+        greedyAlgorithm.solve();
         endTimer();
         printElapsedTime();
+
+        printResults("Guloso", greedyAlgorithm.getTotalCost(), greedyAlgorithm.getPath());
     }
 
     public void solution2(String fileName) {
